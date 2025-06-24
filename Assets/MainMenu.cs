@@ -1,31 +1,30 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Needed to load scenes
-using UnityEngine.UI; // Needed if you want to reference UI components
+using UnityEngine.SceneManagement; // For scene loading
+using UnityEngine.UI;              // For UI components
 
 namespace GlitchGarden
 {
     public class MainMenu : MonoBehaviour
     {
-        // This method is called when the Play button is clicked
+        // Called when "Play" or "New Game" button is clicked
         public void PlayGame()
         {
-            // Replace "GameScene" with your actual game scene name
-            SceneManager.LoadScene("GameScene");
+            // Load Level1 Scene
+            SceneManager.LoadScene("Level1"); // Change "Level1" to match your scene name in Build Settings
         }
 
-        // This method is called when the Settings button is clicked
+        // Called when "Settings" button is clicked
         public void OpenSettings()
         {
-            // Load a settings scene or open a settings menu here
-            SceneManager.LoadScene("SettingsScene"); // Replace with your actual settings scene if any
+            // Load Settings Scene (if you have one)
+            SceneManager.LoadScene("SettingsScene"); // Or remove this method if no SettingsScene exists
         }
 
-        // This method is called when the Quit button is clicked
+        // Called when "Quit" button is clicked
         public void QuitGame()
         {
-            Debug.Log("Quit Game"); // Shows message in Unity Editor
-            Application.Quit();     // Quits the game (works only in build)
+            Debug.Log("Quit Game"); // Works in Unity Editor for testing
+            Application.Quit();     // Will quit the game in a built version
         }
     }
 }
-

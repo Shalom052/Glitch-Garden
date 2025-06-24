@@ -4,23 +4,23 @@ using GlitchGarden;
 
 public class LevelDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI plantText;
+    public TextMeshProUGUI levelInfoText; // Assign this in Inspector
     private LevelManager levelManager;
 
     void Start()
     {
-        levelManager = new LevelManager();
+        levelManager = new LevelManager(); // Create Level 1 backend
 
-        plantText.text = "Level " + levelManager.CurrentLevel.LevelNumber + ": " + levelManager.CurrentLevel.LevelName + "\n";
-        plantText.text += "Biome: " + levelManager.CurrentLevel.BiomeName + "\n\n";
-        plantText.text += "Plants:\n";
+        // Prepare UI display string
+        string info = "LEVEL " + levelManager.CurrentLevel.LevelNumber +
+                      ": " + levelManager.CurrentLevel.LevelName +
+                      "\nBiome: " + levelManager.CurrentLevel.BiomeName +
+                      "\nTarget Score: " + levelManager.CurrentLevel.TargetScore;
 
-        foreach (Plant plant in levelManager.CurrentLevel.LevelPlants)
-        {
-            string status = plant.IsHealthy ? "Healthy 🌸" : "Glitched ❌ (" + plant.CurrentGlitch + ")";
-            plantText.text += plant.Name + " - " + status + "\n";
-        }
+        // Show this info in the UI
+        levelInfoText.text = info;
     }
 }
+
 
 

@@ -8,19 +8,27 @@ namespace GlitchGarden
 
         public LevelManager()
         {
-            // Create Level 1
-            CurrentLevel = new Level(1, "Debug Grove", "Neon Forest", 100);
+            // Setup Level 1: "Debug Grove" with dying plants needing code fixes
+            CurrentLevel = new Level(1, "Debug Grove", "Meadow", 3);
 
-            // Add some plants to this level
-            CurrentLevel.AddPlant(new Plant("Rosebyte", true, ""));
-            CurrentLevel.AddPlant(new Plant("Glitchvine", false, "Texture Missing"));
-            CurrentLevel.AddPlant(new Plant("Databud", false, "Overgrowth Error"));
-        }
-
-        public bool IsLevelComplete()
-        {
-            return CurrentLevel.CheckCompletion();
+            // Realistic plants with "buggy code" to fix
+            CurrentLevel.AddPlant(new Plant(
+                "Rose", 
+                false, 
+                "PhotosynthesisError: Light absorption module not responding;"
+            ));
+            
+            CurrentLevel.AddPlant(new Plant(
+                "Tulip", 
+                false, 
+                "GrowthFunction() missing return value for stemHeight;"
+            ));
+            
+            CurrentLevel.AddPlant(new Plant(
+                "Sunflower", 
+                false, 
+                "ColorShaderException: Petal color undefined; expected 'Yellow'; found 'Null';"
+            ));
         }
     }
 }
-
